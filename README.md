@@ -1,2 +1,1 @@
 # aleksandrs-summer-school
-#test

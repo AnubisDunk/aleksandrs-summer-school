@@ -1,0 +1,16 @@
+{
+  "name": "aleksandrs-summer-school",
+  "version": "1.0.0",
+  "description": "TDL Summer School 2024",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.13.1",
+    "prettier": "^3.3.3"
+  }
+}
