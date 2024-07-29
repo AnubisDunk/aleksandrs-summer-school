@@ -13,10 +13,10 @@ class Global {
     exists(query, exists, notexists) {
         cy.get('body').then($body => {
             if ($body.find(query).length > 0) { //[data-testid="empty-cart-message"]
-                console.log('exists')
+              
                 exists();
             } else {
-                console.log('not exists')
+               
                 notexists();
                 
             }

@@ -8,21 +8,17 @@ const PASSWORD = Cypress.env('password');
 describe('Login on webstore', () => {
     beforeEach(() => {
         cy.visit('/');
+        cy.logIn(USERNAME, PASSWORD);
     })
-    it('Sign-in webstore', () => {
-        cy.logIn(USERNAME, PASSWORD);
-    });
+    //it('Sign-in webstore', () => {});
     it('Buy first 2 items in store', () => {
-        cy.logIn(USERNAME, PASSWORD);
         Home.buyProduct(1);
-        //Home.buyProduct(2);
+        Home.buyProduct(2);
 
     })
     it('Clear cart', () => {
-        cy.logIn(USERNAME, PASSWORD);
         cy.visit('https://coe-webstore.tdlbox.com/cart')
         Cart.clearCart();
-        
     })
 });
 

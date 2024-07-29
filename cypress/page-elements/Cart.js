@@ -7,7 +7,6 @@ class Cart {
 
     clearCart() {
         Global.exists('[data-testid="empty-cart-message"]', () => {
-            
             console.log('Cart is empty');
         }, () => {
             cy.get('tbody tr').each(($el) => {
