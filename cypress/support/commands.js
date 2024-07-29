@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import Home from "../page-elements/Home";
+import Login from "../page-elements/Login"
+
+Cypress.Commands.add('getByTestId', (id) => {
+    cy.get(`[data-testid=${id}]`)
+})
+Cypress.Commands.add('logIn', (email, password) => {
+    cy.contains('h1', 'Welcome back');
+    Login.logIn(email, password);
+    Login.elements.singInButton().click();
+    Home.elements.headerLink().should('have.text', 'Store of Excellence');
+})
