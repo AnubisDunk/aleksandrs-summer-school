@@ -4,7 +4,7 @@
     "description": "TDL Summer School 2024",
     "main": "index.js",
     "scripts": {
-        "format": "npx prettier . --tab-width 4 --write",
+        "format": "npx prettier . --write",
         "cypress-open": "npx cypress open"
     },
     "keywords": [],

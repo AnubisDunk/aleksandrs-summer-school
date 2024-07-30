@@ -1,8 +1,9 @@
 class Global {
     elements = {
-        sideBarBurger: () => cy.getByTestId("nav-menu-button"),
+        headerLink: () => cy.getByTestId('nav-store-link'),
+        sideBarBurger: () => cy.getByTestId('nav-menu-button'),
         sideBarLinks: (pageName) =>
-            cy.getByTestId("nav-menu-popup").contains("a", pageName),
+            cy.getByTestId('nav-menu-popup').contains('a', pageName),
     };
     navigateSideBar = {
         openPage: (pageName) => {

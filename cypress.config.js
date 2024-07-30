@@ -1,12 +1,14 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
     env: {
-        username: "joe@doe.com",
-        password: "joedoe",
+        username: 'joe@doe.com',
+        password: 'joedoe',
     },
     e2e: {
-        baseUrl: "https://coe-webstore.tdlbox.com/us/sign-in/",
+        viewportWidth: 1920,
+        viewportHeight: 1080,
+        baseUrl: 'https://coe-webstore.tdlbox.com',
         setupNodeEvents(on, config) {},
     },
 });

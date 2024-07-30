@@ -1,4 +1,4 @@
-const Manufacturer = require("./Manufacturer");
+const Manufacturer = require('./Manufacturer');
 class Gun {
     constructor(name, ammo, manufacturer) {
         this.name = name;
@@ -9,7 +9,7 @@ class Gun {
     }
     shoot() {
         if (this.isEmpty) {
-            console.log("click..");
+            console.log('click..');
         } else {
             this.ammo--;
             if (this.ammo <= 0) this.isEmpty = true;
@@ -18,7 +18,7 @@ class Gun {
     }
     info() {
         console.log(
-            `${this.name} with ${this.ammo}/${this.maxAmmo} in magazine. Origin is ${this.manufacturer.title}`,
+            `${this.name} with ${this.ammo}/${this.maxAmmo} in magazine. Origin is ${this.manufacturer.title}`
         );
     }
     reload() {

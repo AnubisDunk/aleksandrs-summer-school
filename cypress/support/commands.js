@@ -24,23 +24,28 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import Home from "../page-elements/Home";
-import Login from "../page-elements/Login";
+import Login from '../page-elements/Login';
+import Global from '../page-elements/Global';
 
-Cypress.Commands.add("getByTestId", (id) => {
+Cypress.Commands.add('getByTestId', (id) => {
     cy.get(`[data-testid=${id}]`);
 });
-Cypress.Commands.add("logIn", (email, password) => {
-    cy.contains("h1", "Welcome back");
-    Login.logIn(email, password);
-    Login.elements.singInButton().click();
-    Home.elements.headerLink().should("have.text", "Store of Excellence");
+Cypress.Commands.add('getSA', (id) => {
+    //shortcut for getting Shipping Adress ID
+    cy.getByTestId(`shipping-${id}-input`);
+});
+Cypress.Commands.add('login', (email, password) => {
+    cy.session([email, password], () => {
+        cy.visit('/');
+        Login.logIn(email, password);
+        Login.elements.singInButton().click();
+        Global.elements.headerLink().should('be.visible');
+    });
 });
 
-Cypress.Commands.add("if", (query, exists, notexists = () => {}) => {
-    cy.get("body").then(($body) => {
+Cypress.Commands.add('if', (query, exists, notexists = () => {}) => {
+    cy.get('body').then(($body) => {
         if ($body.find(query).length > 0) {
-            //[data-testid="empty-cart-message"]
             exists();
         } else {
             notexists();

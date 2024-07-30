@@ -6,7 +6,7 @@ class Manufacturer {
     }
     info() {
         console.log(
-            `This is ${this.title} ${this.discription} from: ${this.origin}`,
+            `This is ${this.title} ${this.discription} from: ${this.origin}`
         );
     }
 }

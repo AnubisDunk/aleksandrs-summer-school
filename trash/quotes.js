@@ -1,4 +1,4 @@
-const NAME = "Aleksandrs";
+const NAME = 'Aleksandrs';
 let born = 1998;
 const d = new Date();
 let age = d.getFullYear() - born;
