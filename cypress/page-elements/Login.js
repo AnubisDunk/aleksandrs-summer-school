@@ -1,5 +1,6 @@
 class Login {
     elements = {
+        loginTitle: () => cy.getByTestId('login-page').find('h1'),
         singInButton: () => cy.getByTestId('sign-in-button'),
         passwordInput: (password) => cy.getByTestId('password-input'),
         emailInput: (email) => cy.getByTestId('email-input'),

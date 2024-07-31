@@ -5,37 +5,31 @@ import Product from '../../page-elements/Product';
 import Cart from '../../page-elements/Cart';
 import Checkout from '../../page-elements/Checkout';
 import Dashboard from '../../page-elements/Dashboard';
+import 'cypress-if';
 const USERNAME = Cypress.env('username');
 const PASSWORD = Cypress.env('password');
-const DATA = {
-    firstName: 'Joe',
-    lastName: 'Doe',
-    address: 'Rujenas iela 6-9',
-    company: 'Obito Baltic',
-    postalCode: 'LV-1035',
-    city: 'Riga',
-    stateProvince: 'Riga',
-    country: 'us',
-};
 describe('Login on webstore', () => {
     beforeEach(() => {
         cy.login(USERNAME, PASSWORD);
     });
     it('Sign-in webstore', () => {});
-    it('Buy 2 items from main page', () => {
-        Store.buyProductFromFeature(3);
+    it('Buy item from main page', () => {
+        Store.buyProductFromFeature(2);
         Product.elements.buyInput().should('have.text', 'Select variant');
     });
-    it('Buy 2 items from store page', () => {
+    it('Buy item from store page', () => {
         Store.buyProduct(2);
         Product.elements.buyInput().should('have.text', 'Select variant');
     });
     it('Fill checkout data', () => {
         cy.visit('/cart');
-        Cart.elements.cartTitle().contains('h1', 'Cart');
+        Cart.elements.container().should('be.visible');
         Cart.elements.checkoutButton().click();
         cy.visit('/checkout?step=address');
-        Checkout.fillShippingAddress(DATA);
+        Checkout.elements.container().should('be.visible');
+        cy.fixture('addressFill').then((fields) => {
+            Checkout.fillShippingAddress(fields);
+        });
         Checkout.elements.sumbitAddressButton().click();
         Checkout.selectDilivery(true);
         Checkout.elements.submitDeliveryButton().click();
@@ -51,16 +45,21 @@ describe('Login on webstore', () => {
     it('Logout from dashboard', () => {
         cy.visit('/dashboard');
         Dashboard.elements.logoutButton().last().click();
+        Login.elements.loginTitle().should('be.visible');
+        cy.url().should('include', '/sign-in');
     });
     it('Trying access cart being logout', () => {
         cy.visit('/dashboard');
         Dashboard.elements.logoutButton().last().click();
-        cy.wait(500);
+        Login.elements.loginTitle().should('be.visible');
         cy.visit('/cart');
+        Login.elements.loginTitle().should('be.visible');
         cy.url().should('include', '/sign-in');
     });
-    // it('Clear cart', () => {
-    //     cy.visit('/cart');
-    //     Cart.clearCart();
-    // });
+    it('Clear cart', () => {
+        Store.buyProduct(2);
+        Product.elements.buyInput().should('have.text', 'Select variant');
+        cy.visit('/cart');
+        Cart.clearCart();
+    });
 });

@@ -37,13 +37,14 @@ Cypress.Commands.add('getSA', (id) => {
 Cypress.Commands.add('login', (email, password) => {
     cy.session([email, password], () => {
         cy.visit('/');
+        Login.elements.loginTitle().should('be.visible');
         Login.logIn(email, password);
         Login.elements.singInButton().click();
         Global.elements.headerLink().should('be.visible');
     });
 });
-
-Cypress.Commands.add('if', (query, exists, notexists = () => {}) => {
+//My cypress if command.
+Cypress.Commands.add('myif', (query, exists, notexists = () => {}) => {
     cy.get('body').then(($body) => {
         if ($body.find(query).length > 0) {
             exists();

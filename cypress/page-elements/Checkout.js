@@ -2,6 +2,7 @@ import Global from './Global';
 
 class Checkout {
     elements = {
+        container: () => cy.getByTestId('checkout-container'),
         deliveryOptions: () => cy.getByTestId('delivery-options-container'),
         sumbitAddressButton: () => cy.getByTestId('submit-address-button'),
         submitDeliveryButton: () =>

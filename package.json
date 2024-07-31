@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "cypress": "^13.13.1",
+        "cypress-if": "^1.12.5",
         "prettier": "^3.3.3"
     }
 }
