@@ -13,15 +13,24 @@ describe('Login on webstore', () => {
         cy.login(USERNAME, PASSWORD);
     });
     it('Sign-in webstore', () => {});
-    it('Buy item from main page', () => {
-        Store.buyProductFromFeature(2);
-        Product.elements.buyInput().should('have.text', 'Select variant');
+    it('Observe item', () => {
+        cy.visit('/');
+        Store.openProduct(2);
     });
-    it('Buy item from store page', () => {
+    it('Buy item from main page', () => {
+        cy.visit('/');
+        Store.openProduct(2);
         Store.buyProduct(2);
         Product.elements.buyInput().should('have.text', 'Select variant');
     });
-    it('Fill checkout data', () => {
+    it('Buy item from store page', () => {
+        cy.visit('/store');
+        Store.elements.container().should('be.visible');
+        Store.openProduct(2);
+        Store.buyProduct(2);
+        Product.elements.buyInput().should('have.text', 'Select variant');
+    });
+    it('Checkout product', () => {
         cy.visit('/cart');
         Cart.elements.container().should('be.visible');
         Cart.elements.checkoutButton().click();
@@ -36,6 +45,18 @@ describe('Login on webstore', () => {
         Checkout.elements.submitPaymentButton().click();
         Checkout.elements.submitOrderButton().click();
         cy.url().should('include', '/order/confirmed/order');
+    });
+    it('Check order from dashboard', () => {
+        cy.visit('/dashboard');
+        Dashboard.elements.ordersButton().last().click();
+
+        Dashboard.orderElements
+            .orderCard()
+            .first()
+            .should('be.visible')
+            .find('a')
+            .click();
+        cy.url().should('include', 'order_');
     });
     it('Logout from menu', () => {
         cy.visit('/');
@@ -57,6 +78,8 @@ describe('Login on webstore', () => {
         cy.url().should('include', '/sign-in');
     });
     it('Clear cart', () => {
+        cy.visit('/');
+        Store.openProduct(2);
         Store.buyProduct(2);
         Product.elements.buyInput().should('have.text', 'Select variant');
         cy.visit('/cart');
