@@ -2,14 +2,12 @@ class Global {
     elements = {
         headerLink: () => cy.getByTestId('nav-store-link'),
         sideBarBurger: () => cy.getByTestId('nav-menu-button'),
-        sideBarLinks: (pageName) =>
-            cy.getByTestId('nav-menu-popup').contains('a', pageName),
-    };
-    navigateSideBar = {
-        openPage: (pageName) => {
-            this.elements.sideBarBurger().click();
-            this.elements.sideBarLinks(pageName);
-        },
+        sideBarMenu: () => cy.getByTestId('nav-menu-popup'),
+        languageSelector: () =>
+            cy
+                .getByTestId('nav-menu-popup')
+                .find('button[type=button]')
+                .first(),
     };
 }
 export default new Global();
