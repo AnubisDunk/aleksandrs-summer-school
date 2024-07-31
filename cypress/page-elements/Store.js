@@ -10,9 +10,14 @@ class Store {
         Product.elements.container().should('be.visible');
     }
     buyProduct(index = 0, optionIndex = 0) {
-        Product.elements.productOptions().each((option) => {
-            option.find('button').eq(optionIndex).click();
-        });
+        Product.elements
+            .productOptions()
+            .if('visible')
+            .then(() => {
+                Product.elements.productOptions().each((option) => {
+                    option.find('button').eq(optionIndex).click();
+                });
+            });
         Product.elements.buyInput().should('be.visible').click();
     }
 }

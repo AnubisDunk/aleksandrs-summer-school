@@ -1,5 +1,3 @@
-import Global from './Global';
-
 class Checkout {
     elements = {
         container: () => cy.getByTestId('checkout-container'),
