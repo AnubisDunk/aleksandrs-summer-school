@@ -78,6 +78,14 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
+## Authors
+
+> Aleksandrs Baranovskis
+
+[Website](https://anubisdunk.com/cv)
+
+[Github](https://github.com/AnubisDunk)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
