@@ -18,6 +18,9 @@ jobs:
       uses: actions/checkout@v4.1.7
     - name: Run all Cypress Tests
       uses: cypress-io/github-action@v6.5.0
+      env:
+        CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+        CYPRESS_EMAIL: ${{secrets.CYPRESS_EMAIL}}
       with:
         install: true
         command: npm run cypress-run
