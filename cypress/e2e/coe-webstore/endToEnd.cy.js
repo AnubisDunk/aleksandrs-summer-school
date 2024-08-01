@@ -6,6 +6,8 @@ import Cart from '../../page-elements/Cart';
 import Checkout from '../../page-elements/Checkout';
 import Dashboard from '../../page-elements/Dashboard';
 
+import 'cypress-if';
+
 const USERNAME = Cypress.env('EMAIL');
 
 const PASSWORD = Cypress.env('PASSWORD');
