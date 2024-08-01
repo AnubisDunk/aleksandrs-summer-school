@@ -2,8 +2,8 @@ import Global from '../../page-elements/Global';
 import Product from '../../page-elements/Product';
 import Store from '../../page-elements/Store';
 
-const USERNAME = Cypress.env('username');
-const PASSWORD = Cypress.env('password');
+const USERNAME = Cypress.env('EMAIL');
+const PASSWORD = Cypress.env('PASSWORD');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
 describe('Multi language functionality tests', () => {
