@@ -17,7 +17,18 @@ describe('Multi language functionality tests', () => {
         cy.contains('LV').click();
         Global.elements.headerLink().should('have.text', 'Veikals izcilībai');
     });
-    it('Check if product description has proper language', () => {
+    it('Switching language from Latvian to English', () => {
+        cy.visit('/');
+        Global.elements.sideBarBurger().click();
+        Global.elements.languageSelector().click();
+        cy.contains('LV').click();
+        Global.elements.headerLink().should('have.text', 'Veikals izcilībai');
+        Global.elements.sideBarBurger().click();
+        Global.elements.languageSelector().click();
+        cy.contains('US').click();
+        Global.elements.headerLink().should('have.text', 'Store of Excellence');
+    });
+    it('Check if Latvian page product description has Latvian language', () => {
         cy.visit('/');
         Global.elements.sideBarBurger().click();
         Global.elements.languageSelector().click();
