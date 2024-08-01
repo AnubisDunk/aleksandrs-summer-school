@@ -1,6 +1,6 @@
 # Automated tests for webstore
 
-> Write a project description
+This project contains automated tests using [Cypress](https://www.cypress.io/), a powerful end-to-end testing framework. Cypress makes it easy to write, debug, and run tests for your web applications.
 
 ## Prerequisites
 
@@ -21,8 +21,25 @@ v22.3.0
 
 Start with cloning this repo on your local machine:
 
-> `git clone https://github.com/AnubisDunk/aleksandrs-summer-school.git`<br>
+```bash
+git clone https://github.com/AnubisDunk/aleksandrs-summer-school.git
+```
 
-Don't forget to do
+To install and set up the library, run:
 
-> `npm install`
+```bash
+npm install
+```
+
+Setup test user _credentials_
+
+Create `cypress.env.json` in project directory and put inside this code:
+
+```json
+{
+    "EMAIL": "joe@doe.com",
+    "PASSWORD": "joedoe"
+}
+```
+
+## Usage

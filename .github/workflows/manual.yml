@@ -8,25 +8,25 @@ on: [push, workflow_dispatch]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  cypress-run:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4.1.7
-    - name: Run all Cypress Tests
-      uses: cypress-io/github-action@v6.5.0
-      env:
-        CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
-        CYPRESS_EMAIL: ${{secrets.CYPRESS_EMAIL}}
-      with:
-        install: true
-        command: npm run cypress-run
-    - name: Upload reports and screenshots
-      uses: actions/upload-artifact@v4.3.4
-      if: always()
-      with:
-        name: report
-        path: ./mochawesome-report
+    # This workflow contains a single job called "greet"
+    cypress-run:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.7
+            - name: Run all Cypress Tests
+              uses: cypress-io/github-action@v6.5.0
+              env:
+                  CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
+                  CYPRESS_EMAIL: ${{secrets.CYPRESS_EMAIL}}
+              with:
+                  install: true
+                  command: npm run cypress-run
+            - name: Upload reports and screenshots
+              uses: actions/upload-artifact@v4.3.4
+              if: always()
+              with:
+                  name: report
+                  path: ./mochawesome-report
