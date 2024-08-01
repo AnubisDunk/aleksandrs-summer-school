@@ -1,4 +1,4 @@
-# Aleksandrs-Summer-School
+# Automated tests for webstore
 
 ## Installation
 
