@@ -5,15 +5,9 @@ import Product from '../../page-elements/Product';
 import Cart from '../../page-elements/Cart';
 import Checkout from '../../page-elements/Checkout';
 import Dashboard from '../../page-elements/Dashboard';
-import 'cypress-if';
-//const path = require('path');
-//console.log(__dirname + '/.env');
-//console.log(path.resolve() + '.env' )
-//require('dotenv').config();
-const USERNAME = Cypress.env('EMAIL');
-//const pass = process.env.path;
 
-//console.log(pass);
+const USERNAME = Cypress.env('EMAIL');
+
 const PASSWORD = Cypress.env('PASSWORD');
 describe('Full flow test', () => {
     beforeEach(() => {
@@ -34,14 +28,14 @@ describe('Full flow test', () => {
         cy.visit('/');
         Store.openProduct(2);
         Store.buyProduct(2);
-        // Product.elements.buyInput().should('have.text', 'Select variant');
+        Product.elements.buyInput().should('have.text', 'Select variant');
     });
     it('Buy item from store page', () => {
         cy.visit('/store');
         Store.elements.container().should('be.visible');
         Store.openProduct(4);
         Store.buyProduct(2);
-        //Product.elements.buyInput().should('have.text', 'Select variant');
+        Product.elements.buyInput().should('have.text', 'Select variant');
     });
     it('Checkout product with empty shipping address fields', () => {
         cy.visit('/cart');

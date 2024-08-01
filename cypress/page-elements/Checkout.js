@@ -19,6 +19,7 @@ class Checkout {
         },
     };
     fillShippingAddress(data = {}) {
+        this.elements.shippingAddress.country().select(data.country);
         for (let field in this.elements.shippingAddress) {
             if (field != 'country') {
                 this.elements.shippingAddress[field]()
@@ -26,7 +27,6 @@ class Checkout {
                     .type(data[field]);
             }
         }
-        this.elements.shippingAddress.country().select(data.country);
     }
     selectDilivery(isExpress = false) {
         if (!isExpress) {
