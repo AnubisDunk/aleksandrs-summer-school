@@ -6,8 +6,15 @@ import Cart from '../../page-elements/Cart';
 import Checkout from '../../page-elements/Checkout';
 import Dashboard from '../../page-elements/Dashboard';
 import 'cypress-if';
-const USERNAME = Cypress.env('username');
-const PASSWORD = Cypress.env('password');
+//const path = require('path');
+//console.log(__dirname + '/.env');
+//console.log(path.resolve() + '.env' )
+//require('dotenv').config();
+const USERNAME = Cypress.env('EMAIL');
+//const pass = process.env.path;
+
+//console.log(pass);
+const PASSWORD = Cypress.env('PASSWORD');
 describe('Full flow test', () => {
     beforeEach(() => {
         cy.login(USERNAME, PASSWORD);

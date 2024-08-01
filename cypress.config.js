@@ -6,8 +6,9 @@ module.exports = defineConfig({
         overwrite:false,
     },
     env: {
-        username: process.env.EMAIL,
-        password: process.env.PASSWORD,
+       // username: '',   // username: process.env['EMAIL'],
+                            //password: process.env['PASSWORD'],
+        //password: '',
     },
     e2e: {
         viewportWidth: 1920,
