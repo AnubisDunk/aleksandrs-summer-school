@@ -7,7 +7,9 @@
         "format": "npx prettier . --write",
         "cypress-open": "npx cypress open",
         "reports-cleanup": "rm -r ./mochawesome-report",
-        "cypress-run": "cypress run"
+        "cypress-run": "cypress run",
+        "cypress-run-e2e": "npx cypress run --spec cypress/e2e/coe-webstore/endToEnd.cy.js",
+        "cypress-run-multilang": "npx cypress run --spec cypress/e2e/coe-webstore/multiLanguage.cy.js"
     },
     "keywords": [],
     "author": "",

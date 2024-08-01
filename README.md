@@ -1,25 +1,26 @@
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 # Automated tests for webstore
 
-This project contains automated tests using [Cypress](https://www.cypress.io/), a powerful end-to-end testing framework. Cypress makes it easy to write, debug, and run tests for your web applications.
+This project contains automated tests using [Cypress](https://www.cypress.io/), a powerful end-to-end testing framework. Cypress makes it easy to write, debug, and run tests for your web applications. The tests are designed to ensure that the web application behaves as expected and to catch any regressions early in the development process.
 
-## Prerequisites
+## Project setup
 
-This project requires NodeJS (version 8 or later) and NPM.
+### Prerequisites
+
+This project requires NodeJS and NPM.
 [Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
 To make sure you have them available on your machine,
 try running the following command.
 
-```sh
-$ npm -v && node -v
+```bash
+npm -v && node -v
 10.8.1
 v22.3.0
 ```
 
-## Installation
-
-**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
+### Installation
 
 Start with cloning this repo on your local machine:
 
@@ -46,15 +47,30 @@ Create `cypress.env.json` in project directory and put inside this code:
 
 ## Usage
 
-To run tests use: 
-``` bash
+To run **all** tests in headless mode, use:
+
+```bash
 npm run cypress-run
 ```
 
-To run tests in browser instance use (with UI) use: 
-``` bash
+To run **all** tests in Cypress Test Runner, use:
+
+```bash
 npm run cypress-open
 ```
+
+To run e2e tests in headless mode, use:
+
+```bash
+npm run cypress-run-e2e
+```
+
+To run multilanguage tests in headless mode, use:
+
+```bash
+npm run cypress-run-multilang
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
