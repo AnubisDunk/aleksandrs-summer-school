@@ -131,4 +131,5 @@ dist
 
 cypress.env.json
 mochawesome-report
-screenshots
+cypress/screenshots
+.DS_Store
