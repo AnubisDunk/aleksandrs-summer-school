@@ -6,8 +6,6 @@
 The Automated tests for the web store aims to ensure the functionality, performance, and security of the web store application.
 This project contains automated tests using [Cypress](https://www.cypress.io/), a powerful end-to-end testing framework. Cypress makes it easy to write, debug, and run tests for your web applications. The tests are designed to ensure that the web application behaves as expected and to catch any regressions early in the development process.
 
-Test cases are based on my [test plan](https://tdlschool.atlassian.net/browse/TSS22N-260?atlOrigin=eyJpIjoiM2FmMTIxODA3MmU4NDQ1MjkyNTg1NTA5NDM1MzA5ODAiLCJwIjoiaiJ9)
-
 ## Table of Contents
 
 -   [Description](#automated-tests-for-webstore)
